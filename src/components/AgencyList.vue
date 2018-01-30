@@ -3,8 +3,9 @@
         <h1>Agencies</h1>
         <p v-if="!agencies">Loading...</p>
         <ul>
-          <li v-for="agency in agencies">{{agency.name}}</li>
+          <li v-for="agency in agencies" v-bind:key="agency.name">{{agency.name}}</li>
         </ul>
+        <b-alert show>Default Alert</b-alert>
     </div>
 </template>
 
