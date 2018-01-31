@@ -1,11 +1,10 @@
 <template>
     <div>
-        <h1>Agencies</h1>
+        <h2>Agencies</h2>
         <p v-if="!agencies">Loading...</p>
         <ul>
           <li v-for="agency in agencies" v-bind:key="agency.name">{{agency.name}}</li>
         </ul>
-        <b-alert show>Default Alert</b-alert>
     </div>
 </template>
 
