@@ -2,16 +2,18 @@
     <div>
         <h2>Launches</h2>
         <p v-if="!launches">Loading...</p>
-        <ul>
-          <li v-for="launch in launches" v-bind:key="launch.name">{{launch.rocket.rocket_name}}</li>
-        </ul>
+        <sp-launch v-for="launch in launches" v-bind:key="launch.name" :launch="launch"></sp-launch>
     </div>
 </template>
 
 <script>
 import axios from 'axios';
+import Launch from '@/components/space/Launch';
 
 export default {
+  components: {
+    'sp-launch': Launch
+  },
   data() {
     return {
       launches: undefined
