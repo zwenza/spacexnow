@@ -3,7 +3,7 @@
         <h2>Launches</h2>
         <p v-if="!launches">Loading...</p>
         <ul>
-          <li v-for="launch in launches" v-bind:key="launch.name">{{launch.name}}</li>
+          <li v-for="launch in launches" v-bind:key="launch.name">{{launch.rocket.rocket_name}}</li>
         </ul>
     </div>
 </template>
@@ -18,9 +18,11 @@ export default {
     };
   },
   created() {
-    axios.get(`https://launchlibrary.net/1.3/launch`).then(response => {
-      this.launches = response.data.launches;
-    });
+    axios
+      .get(`https://api.spacexdata.com/v2/launches/upcoming`)
+      .then(response => {
+        this.launches = response.data;
+      });
   }
 };
 </script>
