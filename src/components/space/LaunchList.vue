@@ -1,8 +1,10 @@
 <template>
     <div>
-        <h2>Launches</h2>
+        <h2>Upcoming Launches</h2>
         <p v-if="!launches">Loading...</p>
-        <sp-launch v-for="launch in launches" v-bind:key="launch.name" :launch="launch"></sp-launch>
+        <div class="sp-launch-container">
+            <sp-launch v-for="launch in launches" v-bind:key="launch.name" :launch="launch"></sp-launch>
+        </div>
     </div>
 </template>
 
@@ -28,3 +30,11 @@ export default {
   }
 };
 </script>
+
+<style>
+.sp-launch-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+</style>
