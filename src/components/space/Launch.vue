@@ -1,8 +1,13 @@
 <template>
   <div>
     <b-card :title="launch.rocket.rocket_name"
-            style="sp-launch-card">
-      <i class="fas fa-map-marker-alt"></i> <i>{{launch.launch_site.site_name_long}}</i>
+            :img-src="image"
+            style="max-width: 30rem;">
+      <i class="fas fa-map-marker-alt"></i> <i>{{launch.launch_site.site_name}}</i>
+      <br/>
+      <i class="fas fa-calendar-alt"></i> <b>{{launch.launch_date_utc}} UTC</b>
+      <hr/>
+      <a :href="launch.links.reddit_campaign"><i class="fab fa-reddit"></i></a> 
     </b-card>
     <br/>
   </div>
@@ -11,6 +16,17 @@
 <script>
 export default {
   name: 'sp-launch',
-  props: ['launch']
+  props: ['launch'],
+  data: function() {
+    return {
+      image: ''
+    };
+  },
+  mounted: function() {
+    this.image =
+      this.launch.rocket.rocket_id === 'falcon9'
+        ? 'https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2016/05/spacexheader.jpg'
+        : 'https://cdn.vox-cdn.com/thumbor/PcunTSHRJTT7JXLMAowXIL0sW5U=/0x0:3000x2000/1200x800/filters:focal(1260x760:1740x1240)/cdn.vox-cdn.com/uploads/chorus_image/image/58547073/38583830575_eb67b89fa2_o.0.jpg';
+  }
 };
 </script>
