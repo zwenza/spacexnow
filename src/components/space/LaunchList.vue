@@ -34,7 +34,8 @@ export default {
 <style>
 .sp-launch-container {
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  justify-content: space-around;
+  align-items: baseline;
+  flex-direction: row;
 }
 </style>
