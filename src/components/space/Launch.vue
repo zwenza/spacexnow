@@ -7,7 +7,7 @@
       <br/>
       <i class="fas fa-calendar-alt"></i> <b>{{launch.launch_date_utc}} UTC</b>
       <hr/>
-      <a :href="launch.links.reddit_campaign"><i class="fab fa-reddit"></i></a> 
+      <a :href="launch.links.reddit_campaign"><i class="fab fa-reddit"></i></a>
     </b-card>
     <br/>
   </div>
