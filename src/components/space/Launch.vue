@@ -7,6 +7,8 @@
       <br/>
       <i class="fas fa-calendar-alt"></i> <b>{{launch.launch_date_utc}} UTC</b>
       <hr/>
+      <sp-rocket-preview :rocket="launch.rocket"/>
+      <hr/>
       <a :href="launch.links.reddit_campaign"><i class="fab fa-reddit"></i></a>
     </b-card>
     <br/>
@@ -14,9 +16,14 @@
 </template>
 
 <script>
+import RocketPreview from '@/components/space/RocketPreview';
+
 export default {
   name: 'sp-launch',
   props: ['launch'],
+  components: {
+    'sp-rocket-preview': RocketPreview
+  },
   data: function() {
     return {
       image: ''
