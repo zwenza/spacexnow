@@ -1,13 +1,14 @@
 <template>
   <div>
-    <b-card :title="launch.rocket.rocket_name"
+    <b-card :title="launch.rocket.rocket_name + ' - ' + launch.rocket.second_stage.payloads[0].payload_id"
             :img-src="image"
             style="max-width: 30rem;">
+      <b-badge v-b-tooltip.hover title="Customer" v-for="customer in launch.rocket.second_stage.payloads[0].customers" pill variant="secondary" v-bind:key="customer"> {{customer}}</b-badge>
+      <sp-rocket-preview :rocket="launch.rocket"/>
+      <br/>
       <i class="fas fa-map-marker-alt"></i> <i>{{launch.launch_site.site_name}}</i>
       <br/>
       <i class="fas fa-calendar-alt"></i> <b>{{launch.launch_date_utc}} UTC</b>
-      <hr/>
-      <sp-rocket-preview :rocket="launch.rocket"/>
       <hr/>
       <a :href="launch.links.reddit_campaign"><i class="fab fa-reddit"></i></a>
     </b-card>

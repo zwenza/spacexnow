@@ -2,7 +2,6 @@
   <div>
     <div v-for="core in rocket.first_stage.cores"
          v-bind:key="core.core_serial">
-      Cores:
       <b-badge id="coreInfoPopover"
                :variant="core.reused ? 'primary' : 'info'">
         {{core.core_serial}}
