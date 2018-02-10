@@ -4,8 +4,8 @@
     <b-navbar-brand href="#">SpaceInfo 🚀</b-navbar-brand>
     <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav>
-        <b-nav-item router-link to="/launches">Launches</b-nav-item>
-        <b-nav-item router-link to="/agencies">Agencies</b-nav-item>
+          <b-nav-item router-link to="/launches">Launches</b-nav-item>
+          <b-nav-item router-link to="/agencies">Agencies</b-nav-item>
         </b-navbar-nav>
     </b-collapse>
   </b-navbar>
