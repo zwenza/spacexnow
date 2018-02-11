@@ -2,7 +2,7 @@
   <div>
     <b-card :title="launch.rocket.rocket_name + ' - ' + launch.rocket.second_stage.payloads[0].payload_id"
             :img-src="image"
-            style="max-width: 30rem;">
+            style="max-width: 25rem;">
       <b-badge v-b-tooltip.hover title="Customer" v-for="customer in launch.rocket.second_stage.payloads[0].customers" pill variant="secondary" v-bind:key="customer"> {{customer}}</b-badge>
       <sp-rocket-preview :rocket="launch.rocket"/>
       <br/>
