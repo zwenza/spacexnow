@@ -3,7 +3,7 @@
     <b-card :title="launch.rocket.rocket_name + ' - ' + getWholePayload()"
             :img-src="image"
             style="max-width: 25rem;">
-      <b-badge v-b-tooltip.hover title="Customer" v-for="customer in launch.rocket.second_stage.payloads[0].customers" pill variant="secondary" v-bind:key="customer"> {{customer}}</b-badge>
+      <b-badge v-b-tooltip.hover title="Customer" v-for="customer in launch.rocket.second_stage.payloads[0].customers" pill variant="secondary" :key="customer"> {{customer}}</b-badge>
       <sp-rocket-preview :rocket="launch.rocket"/>
       <br/>
       <i class="fas fa-map-marker-alt"></i> <i>{{launch.launch_site.site_name}}</i>
