@@ -1,9 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import AgencyList from '@/components/space/AgencyList';
 import LaunchList from '@/components/space/LaunchList';
-import Dashboard from '@/components/Dashboard';
+import TweetList from '@/components/misc/TweetList';
 
 Vue.use(Router);
 
@@ -11,12 +10,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/dash'
-    },
-    {
-      path: '/dash',
-      name: 'Dashbooard',
-      component: Dashboard
+      redirect: '/launches'
     },
     {
       path: '/launches',
@@ -24,9 +18,9 @@ export default new Router({
       component: LaunchList
     },
     {
-      path: '/agencies',
-      name: 'AgencyList',
-      component: AgencyList
+      path: '/twitter',
+      name: 'TweetList',
+      component: TweetList
     }
   ]
 });

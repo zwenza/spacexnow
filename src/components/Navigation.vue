@@ -1,14 +1,18 @@
 <template>
-  <b-navbar toggleable="md" type="dark" variant="info">
-    <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-    <b-navbar-brand router-link to="/dash">SpaceX Info 🚀</b-navbar-brand>
-    <b-collapse is-nav id="nav_collapse">
-        <b-navbar-nav>
-          <b-nav-item router-link to="/launches">Launches</b-nav-item>
-          <b-nav-item router-link to="/agencies">Agencies</b-nav-item>
-        </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
+<div>
+  <md-toolbar>
+    <h3 class="md-title" style="flex: 1">🚀SpaceX Info</h3>
+    <md-button class="md-icon-button">
+      <md-icon>more_vert</md-icon>
+    </md-button>
+  </md-toolbar>
+  <md-tabs class="md-accent" md-alignment="centered">
+      <md-tab id="tab-home" md-label="Home"></md-tab>
+      <md-tab id="tab-pages" md-label="Pages"></md-tab>
+      <md-tab id="tab-posts" md-label="Posts"></md-tab>
+      <md-tab id="tab-favorites" md-label="Favorites"></md-tab>
+    </md-tabs>
+    </div>
 </template>
 <script>
 export default {

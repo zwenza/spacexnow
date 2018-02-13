@@ -1,17 +1,24 @@
 <template>
   <div>
-    <b-card :title="launch.rocket.rocket_name + ' - ' + getWholePayload()"
-            :img-src="image"
-            style="max-width: 25rem;">
-      <b-badge v-b-tooltip.hover title="Customer" v-for="customer in launch.rocket.second_stage.payloads[0].customers" pill variant="secondary" v-bind:key="customer"> {{customer}}</b-badge>
-      <sp-rocket-preview :rocket="launch.rocket"/>
-      <br/>
-      <i class="fas fa-map-marker-alt"></i> <i>{{launch.launch_site.site_name}}</i>
-      <br/>
-      <i class="fas fa-calendar-alt"></i> <b>{{launch.launch_date_utc}} UTC</b>
-      <hr/>
-      <a :href="launch.links.reddit_campaign"><i class="fab fa-reddit"></i></a>
-    </b-card>
+    <md-card md-with-hover>
+      <md-ripple>
+        <md-card-header>
+          <div class="md-title">{{launch.rocket.rocket_name}} - {{getWholePayload()}}</div>
+          <div class="md-subhead">{{launch.rocket.second_stage.payloads[0].customers}}</div>
+        </md-card-header>
+
+        <md-card-content>
+          <i class="fas fa-map-marker-alt"></i> <i>{{launch.launch_site.site_name}}</i>
+          <br/>
+          <i class="fas fa-calendar-alt"></i> <b>{{launch.launch_date_utc}} UTC</b>
+        </md-card-content>
+
+        <md-card-actions>
+          <md-button :href="launch.links.reddit_campaign">Reddit</md-button>
+        </md-card-actions>
+      </md-ripple>
+    </md-card>
+
     <br/>
   </div>
 </template>
