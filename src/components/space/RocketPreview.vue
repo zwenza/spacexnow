@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="core in rocket.first_stage.cores"
-         v-bind:key="core.core_serial">
+         :key="core.core_serial">
       <b-badge id="coreInfoPopover"
                v-if="core.core_serial"
                :variant="core.reused ? 'primary' : 'info'">
@@ -12,7 +12,7 @@
                   target="coreInfoPopover"
                   triggers="hover">
         <p>Previous missions</p>
-        <b-badge v-for="mission in coreDetails[core.core_serial].missions" v-bind:key="mission" variant="primary">
+        <b-badge v-for="mission in coreDetails[core.core_serial].missions" :key="mission" variant="primary">
           {{mission}}
         </b-badge>
       </b-popover>

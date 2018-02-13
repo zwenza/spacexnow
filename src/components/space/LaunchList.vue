@@ -3,7 +3,7 @@
         <h2>Upcoming Launches</h2>
         <p v-if="!launches">Loading...</p>
         <div class="sp-launch-container">
-            <sp-launch v-for="launch in launches" v-bind:key="launch.name" :launch="launch"></sp-launch>
+            <sp-launch v-for="launch in launches" :key="launch.name" :launch="launch"></sp-launch>
         </div>
     </div>
 </template>
