@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-card :title="launch.rocket.rocket_name + ' - ' + launch.rocket.second_stage.payloads[0].payload_id"
+    <b-card :title="launch.rocket.rocket_name + ' - ' + getWholePayload()"
             :img-src="image"
             style="max-width: 25rem;">
       <b-badge v-b-tooltip.hover title="Customer" v-for="customer in launch.rocket.second_stage.payloads[0].customers" pill variant="secondary" v-bind:key="customer"> {{customer}}</b-badge>
@@ -29,6 +29,13 @@ export default {
     return {
       image: ''
     };
+  },
+  methods: {
+    getWholePayload: function() {
+      return this.launch.rocket.second_stage.payloads
+        .map(payload => payload.payload_id)
+        .join(', ');
+    }
   },
   mounted: function() {
     this.image =
