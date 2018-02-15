@@ -8,11 +8,6 @@
                </md-button>
                <span class="md-title">🚀 SpaceX Info</span>
             </div>
-            <div class="md-toolbar-section-end">
-               <md-button class="md-icon-button">
-                  <md-icon>more_vert</md-icon>
-               </md-button>
-            </div>
          </div>
          <div class="md-toolbar-row">
             <md-tabs class="md-primary" md-sync-route>

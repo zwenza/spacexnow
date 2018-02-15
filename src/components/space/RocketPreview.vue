@@ -2,21 +2,15 @@
   <div>
     <div v-for="core in rocket.first_stage.cores"
          :key="core.core_serial">
-      <div id="coreInfoPopover"
-               v-if="core.core_serial"
+      <md-chip v-if="core.core_serial"
+               :class="{ 'md-primary': core.reused }"
                :variant="core.reused ? 'primary' : 'info'">
-        {{core.core_serial}}
-      </div>
-
-<!--
-      <b-popover  v-if="coreDetails[core.core_serial] != null"
-                  target="coreInfoPopover"
-                  triggers="hover">
-        <p>Previous missions</p>
-        <b-badge v-for="mission in coreDetails[core.core_serial].missions" :key="mission" variant="primary">
-          {{mission}}
-        </b-badge>
-      </b-popover> -->
+        <b>🚀 {{core.core_serial}}</b>
+        <md-tooltip md-direction="right"
+                    v-if="coreDetails[core.core_serial] != null">
+          <span v-for="mission in coreDetails[core.core_serial].missions" :key="mission">{{mission}} - </span>
+        </md-tooltip>
+      </md-chip>
     </div>
   </div>
 </template>

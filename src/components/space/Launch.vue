@@ -4,13 +4,19 @@
       <md-ripple>
         <md-card-header>
           <div class="md-title">{{launch.rocket.rocket_name}} - {{getWholePayload()}}</div>
-          <div class="md-subhead">{{launch.rocket.second_stage.payloads[0].customers}}</div>
+          <div class="md-subhead">
+            <md-icon>location_on</md-icon> <span>{{launch.launch_site.site_name_long}}</span>
+          </div>
         </md-card-header>
 
         <md-card-content>
-          <i class="fas fa-map-marker-alt"></i> <i>{{launch.launch_site.site_name}}</i>
+          <md-icon>date_range</md-icon> <b>{{launch.launch_date_utc}} UTC</b>
           <br/>
-          <i class="fas fa-calendar-alt"></i> <b>{{launch.launch_date_utc}} UTC</b>
+          <md-icon>person</md-icon> <span v-for="customer in launch.rocket.second_stage.payloads[0].customers" :key="customer">{{customer}}</span>
+          <br/><br/>
+          <md-divider></md-divider>
+          <br/>
+          <sp-rocket-preview :rocket="launch.rocket"></sp-rocket-preview>
         </md-card-content>
 
         <md-card-actions>
@@ -18,7 +24,6 @@
         </md-card-actions>
       </md-ripple>
     </md-card>
-
     <br/>
   </div>
 </template>
