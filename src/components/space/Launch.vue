@@ -16,7 +16,7 @@
           <br/><br/>
           <md-divider></md-divider>
           <br/>
-          <sp-rocket-preview :rocket="launch.rocket"></sp-rocket-preview>
+          <sp-booster :rocket="launch.rocket"></sp-booster>
         </md-card-content>
 
         <md-card-actions>
@@ -29,13 +29,13 @@
 </template>
 
 <script>
-import RocketPreview from '@/components/space/RocketPreview';
+import Booster from '@/components/space/Booster';
 
 export default {
   name: 'sp-launch',
   props: ['launch'],
   components: {
-    'sp-rocket-preview': RocketPreview
+    'sp-booster': Booster
   },
   data: function() {
     return {
