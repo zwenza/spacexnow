@@ -11,8 +11,9 @@
          </div>
          <div class="md-toolbar-row">
             <md-tabs class="md-primary" md-sync-route>
-               <md-tab id="tab-home" md-label="Upcoming Launches" to="/launches"></md-tab>
-               <md-tab id="tab-pages" md-label="Twitter" to="/twitter"></md-tab>
+               <md-tab id="tab-upcoming" md-label="Upcoming Launches" to="/upcoming"></md-tab>
+               <md-tab id="tab-launches" md-label="All Launches" to="/launches"></md-tab>
+               <md-tab id="tab-twitter" md-label="Twitter" to="/twitter"></md-tab>
             </md-tabs>
          </div>
       </md-app-toolbar>
