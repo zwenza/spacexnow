@@ -10,7 +10,7 @@
         </md-card-header>
 
         <md-card-content>
-          <md-icon>date_range</md-icon> <b>{{launch.launch_date_utc}} UTC</b>
+          <md-icon>date_range</md-icon> <b>{{toDate(launch.launch_date_utc)}} UTC</b>
           <br/>
           <md-icon>person</md-icon> <span v-for="customer in launch.rocket.second_stage.payloads[0].customers" :key="customer">{{customer}}</span>
           <br/><br/>
@@ -30,6 +30,7 @@
 
 <script>
 import Booster from '@/components/space/Booster';
+import { format } from 'date-fns';
 
 export default {
   name: 'sp-launch',
@@ -47,6 +48,9 @@ export default {
       return this.launch.rocket.second_stage.payloads
         .map(payload => payload.payload_id)
         .join(', ');
+    },
+    toDate: function(date) {
+      return format(date, 'DD.MM.YYYY HH:mm Z');
     }
   },
   mounted: function() {
