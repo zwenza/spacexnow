@@ -1,7 +1,7 @@
 <template>
   <div>
     <md-card md-with-hover>
-      <md-ripple>
+      <md-card-area>
         <md-card-header>
           <div class="md-title">{{launch.rocket.rocket_name}} - {{getWholePayload()}}</div>
           <div class="md-subhead">
@@ -12,17 +12,18 @@
         <md-card-content>
           <md-icon>date_range</md-icon> <b>{{toDate(launch.launch_date_utc)}} UTC</b>
           <br/>
+          <md-icon>av_timer</md-icon> <span>{{getDifference(launch.launch_date_utc)}}</span>
+          <br/>
+          <br/>
           <md-icon>person</md-icon> <span v-for="customer in launch.rocket.second_stage.payloads[0].customers" :key="customer">{{customer}}</span>
-          <br/><br/>
-          <md-divider></md-divider>
+          <br/>
           <br/>
           <sp-booster :rocket="launch.rocket"></sp-booster>
         </md-card-content>
-
-        <md-card-actions>
-          <md-button :href="launch.links.reddit_campaign">Reddit</md-button>
-        </md-card-actions>
-      </md-ripple>
+      </md-card-area>
+      <md-card-actions>
+        <md-button :href="launch.links.reddit_campaign">Reddit</md-button>
+      </md-card-actions>
     </md-card>
     <br/>
   </div>
@@ -30,7 +31,7 @@
 
 <script>
 import Booster from '@/components/space/Booster';
-import { format } from 'date-fns';
+import { format, distanceInWords } from 'date-fns';
 
 export default {
   name: 'sp-launch',
@@ -51,6 +52,9 @@ export default {
     },
     toDate: function(date) {
       return format(date, 'DD.MM.YYYY HH:mm Z');
+    },
+    getDifference: function(date) {
+      return distanceInWords(date, new Date());
     }
   },
   mounted: function() {
