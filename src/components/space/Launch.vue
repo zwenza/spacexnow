@@ -1,29 +1,35 @@
 <template>
   <div>
     <md-card md-with-hover>
-      <md-card-area>
-        <md-card-header>
-          <div class="md-title">{{launch.rocket.rocket_name}} - {{getWholePayload()}}</div>
-          <div class="md-subhead">
-            <md-icon>location_on</md-icon> <span>{{launch.launch_site.site_name_long}}</span>
-          </div>
-        </md-card-header>
+      <md-ripple>
+        <md-card-area>
+          <md-card-media>
+            <img :src="image">
+          </md-card-media>
 
-        <md-card-content>
-          <md-icon>date_range</md-icon> <b>{{toDate(launch.launch_date_utc)}} UTC</b>
-          <br/>
-          <md-icon>av_timer</md-icon> <span>{{getDifference(launch.launch_date_utc)}}</span>
-          <br/>
-          <br/>
-          <md-icon>person</md-icon> <span v-for="customer in launch.rocket.second_stage.payloads[0].customers" :key="customer">{{customer}}</span>
-          <br/>
-          <br/>
-          <sp-booster :rocket="launch.rocket"></sp-booster>
-        </md-card-content>
-      </md-card-area>
-      <md-card-actions>
-        <md-button :href="launch.links.reddit_campaign">Reddit</md-button>
-      </md-card-actions>
+          <md-card-header>
+            <div class="md-title">{{launch.rocket.rocket_name}} - {{getWholePayload()}}</div>
+            <div class="md-subhead">
+              <md-icon>location_on</md-icon> <span>{{launch.launch_site.site_name_long}}</span>
+            </div>
+          </md-card-header>
+
+          <md-card-content>
+            <md-icon>date_range</md-icon> <b>{{toDate(launch.launch_date_utc)}} UTC</b>
+            <br/>
+            <md-icon>av_timer</md-icon> <span>{{getDifference(launch.launch_date_utc)}}</span>
+            <br/>
+            <br/>
+            <md-icon>person</md-icon> <span v-for="customer in launch.rocket.second_stage.payloads[0].customers" :key="customer">{{customer}}</span>
+            <br/>
+            <br/>
+            <sp-booster :rocket="launch.rocket"></sp-booster>
+          </md-card-content>
+        </md-card-area>
+        <md-card-actions>
+          <md-button :href="launch.links.reddit_campaign">Reddit</md-button>
+        </md-card-actions>
+      </md-ripple>
     </md-card>
     <br/>
   </div>
@@ -32,6 +38,8 @@
 <script>
 import Booster from '@/components/space/Booster';
 import { format, distanceInWords } from 'date-fns';
+import falcon9 from '@/assets/falcon9.jpg';
+import falconheavy from '@/assets/falconheavy.jpg';
 
 export default {
   name: 'sp-launch',
@@ -41,7 +49,7 @@ export default {
   },
   data: function() {
     return {
-      image: ''
+      image: this.launch.rocket.rocket_id === 'falcon9' ? falcon9 : falconheavy
     };
   },
   methods: {
@@ -56,12 +64,6 @@ export default {
     getDifference: function(date) {
       return distanceInWords(date, new Date());
     }
-  },
-  mounted: function() {
-    this.image =
-      this.launch.rocket.rocket_id === 'falcon9'
-        ? 'https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2016/05/spacexheader.jpg'
-        : 'https://cdn.vox-cdn.com/thumbor/PcunTSHRJTT7JXLMAowXIL0sW5U=/0x0:3000x2000/1200x800/filters:focal(1260x760:1740x1240)/cdn.vox-cdn.com/uploads/chorus_image/image/58547073/38583830575_eb67b89fa2_o.0.jpg';
   }
 };
 </script>

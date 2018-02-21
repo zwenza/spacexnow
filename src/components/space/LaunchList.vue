@@ -1,11 +1,11 @@
 <template>
-    <div>
-        <h2>Upcoming Launches</h2>
-        <p v-if="!launches">Loading...</p>
-        <div class="sp-launch-container">
-            <sp-launch v-for="launch in launches" :key="launch.name" :launch="launch"></sp-launch>
-        </div>
+  <div>
+    <h2>Upcoming Launches</h2>
+    <p v-if="!launches">Loading...</p>
+    <div class="sp-launch-container">
+      <sp-launch v-for="launch in launches" :key="launch.name" :launch="launch"></sp-launch>
     </div>
+  </div>
 </template>
 
 <script>
@@ -34,8 +34,11 @@ export default {
 <style>
 .sp-launch-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: baseline;
   flex-wrap: wrap;
+}
+.sp-launch-container > div {
+  max-width: 35rem;
 }
 </style>
