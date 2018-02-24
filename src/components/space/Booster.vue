@@ -8,7 +8,7 @@
         <b>🚀 {{core.core_serial}}</b>
         <md-tooltip md-direction="right"
                     v-if="coreDetails[core.core_serial] != null">
-          <span v-for="mission in coreDetails[core.core_serial].missions" :key="mission">{{mission}} - </span>
+          <span v-for="(mission, index) in coreDetails[core.core_serial].missions" :key="mission"><span v-if="index > 0"> - </span>{{mission}}</span>
         </md-tooltip>
       </md-chip>
     </div>
