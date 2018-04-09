@@ -1,5 +1,5 @@
 <template>
-   <md-app md-waterfall md-mode="fixed-last" style="height: 100vh">
+   <md-app md-mode="fixed" style="height: 100vh">
       <md-app-toolbar class="md-large md-dense md-primary">
          <div class="md-toolbar-row">
             <div class="md-toolbar-section-start">
