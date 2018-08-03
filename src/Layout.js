@@ -62,7 +62,7 @@ export default () => {
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
-            SpaceXNow ©2018 Created by David Jöch
+            made by humans on earth
           </Footer>
         </Layout>
       </Layout>

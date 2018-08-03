@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^3.7.3",
+    "date-fns": "^1.29.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",

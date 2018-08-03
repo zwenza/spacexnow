@@ -18,6 +18,7 @@ class LaunchList extends React.Component {
               mission={flight.mission_name}
               rocket={flight.rocket.rocket_name}
               site={flight.launch_site.site_name_long}
+              launchDate={flight.launch_date_local}
             />
           </Col>
         ))}
