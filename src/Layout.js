@@ -1,11 +1,12 @@
-import React from 'react';
-import { Layout, Menu, Icon } from 'antd';
-import './Layout.css';
-import LaunchList from './LaunchList';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Stats from './Stats';
-import Tweets from './Tweets';
-import About from './About';
+import React from "react";
+import { Layout, Menu, Icon } from "antd";
+import "./Layout.css";
+import LaunchList from "./LaunchList";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Stats from "./Stats";
+import Tweets from "./Tweets";
+import About from "./About";
+import logo from "./assets/logo.png";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -24,7 +25,7 @@ export default () => {
           }}
         >
           <div className="logo" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
             <Menu.Item key="1">
               <Link to="/">
                 <Icon type="rocket" />
@@ -52,17 +53,37 @@ export default () => {
           </Menu>
         </Sider>
         <Layout>
-          <Header style={{ background: '#fff', padding: 0 }} />
-          <Content style={{ margin: '24px 16px 0' }}>
-            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
+          <Header style={{ background: "#fff", padding: 0 }}>
+            <div style={{ width: "100%", height: "100%" }}>
+              <img
+                src={logo}
+                alt="SpaceX Now"
+                style={{ width: "100%", height: "100%", objectFit: "contain" }}
+              />
+            </div>
+          </Header>
+          <Content style={{ margin: "24px 16px 0" }}>
+            <div style={{ 
+              padding: 24, 
+              background: "#fff", 
+              minHeight: 360, 
+              display: "grid", 
+              gridTemplateColumns: "1fr", 
+              alignItems: "center", 
+              justifyContent: "center" 
+            }}>
               <Route exact path="/" component={LaunchList} />
               <Route exact path="/stats" component={Stats} />
               <Route exact path="/tweets" component={Tweets} />
               <Route exact path="/about" component={About} />
             </div>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>
-            made by humans on earth
+          <Footer style={{ textAlign: "center" }}>
+            made with{" "}
+            <span role="img" aria-label="Love">
+              ❤️
+            </span>{" "}
+            by humans on earth
           </Footer>
         </Layout>
       </Layout>

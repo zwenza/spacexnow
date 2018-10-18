@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import { Spin } from 'antd';
+import { Spin } from "antd";
 
 export default (Component, dataLoader) => {
   return class extends React.Component {
@@ -19,7 +19,7 @@ export default (Component, dataLoader) => {
 
     render() {
       return this.state.loading ? (
-        <Spin />
+        <Spin size="large" />
       ) : (
         <Component data={this.state.data} />
       );
